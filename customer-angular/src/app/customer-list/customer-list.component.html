@@ -1,0 +1,19 @@
+<p>customer-list works!</p>
+
+<table >
+    <tr>
+        <th>Id</th>
+        <th>customer name</th>
+        <th>balance</th>
+        <th>Delete</th>
+    </tr>
+
+    <tr *ngFor= "let customer of customers">
+    <td>{{customer.id}}</td>
+    <td>{{customer.name}}</td>
+    <td>{{customer.balance}}</td>
+    <td>
+        <button (click)="removeCustomer(customer.id)">Remove</button>
+    </td>  
+    </tr>   
+</table>

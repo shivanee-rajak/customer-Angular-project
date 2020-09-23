@@ -1,0 +1,28 @@
+<p>add-customer</p>
+<form #myform=ngForm (ngSubmit)= "myform.valid && addCustomer(myform)" >
+    <label>Customer Name</label> &nbsp;
+    <input type="text" name= "name" ngModel #nameCtrl=ngModel required minlength="3"> 
+<br>
+<div *ngIf="nameCtrl.errors!==null && nameCtrl.errors.required" class="error">
+    name is required
+</div>
+
+<div *ngIf="nameCtrl.errors!==null && nameCtrl.errors.minlength" class="error">
+    min length is 3
+</div>
+    <label>Balance</label> &nbsp; 
+    <input type="number" name= "balance" ngModel #balanceCtrl=ngModel required>
+
+    <div *ngIf="balanceCtrl.errors!==null && balanceCtrl.errors.required" class="error" >
+        balance is required
+    </div> 
+<br>
+    <input type="submit" value="submit">
+</form>
+
+<div *ngIf="customer!=undefined">
+    <h3>Added Customer</h3>
+    Submitted data is {{customer.id}}
+     {{customer.name}} 
+     {{customer.balance}}
+    </div>
